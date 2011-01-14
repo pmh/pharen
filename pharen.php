@@ -754,7 +754,7 @@ class RootNode extends Node{
 
         $code .= $this->format_line("<?php");
         if(!isset(Flags::$flags['no-import-lang']) or Flags::$flags['no-import-lang'] == False){
-            $code .= $this->format_line("require_once('lang.php');");
+            $code .= $this->format_line("require_once('".COMPILER_SYSTEM."/lexical.php"."');");
         }else if(Flags::$flags['no-import-lang'] == True){
             $code .= $this->format_line("require_once('".COMPILER_SYSTEM."/lexical.php"."');");
         }
