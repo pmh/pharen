@@ -1,6 +1,6 @@
 <?php
 error_reporting(E_ALL | E_NOTICE);
-define("COMPILER_SYSTEM", dirname(__FILE__));
+define("COMPILER_SYSTEM", "pharen");
 define("EXTENSION", ".phn");
 
 require_once(COMPILER_SYSTEM.'/lexical.php');
@@ -754,7 +754,7 @@ class RootNode extends Node{
 
         $code .= $this->format_line("<?php");
         if(!isset(Flags::$flags['no-import-lang']) or Flags::$flags['no-import-lang'] == False){
-            $code .= $this->format_line("require_once('".COMPILER_SYSTEM."/lang.php"."');");
+            $code .= $this->format_line("require_once('lang.php');");
         }else if(Flags::$flags['no-import-lang'] == True){
             $code .= $this->format_line("require_once('".COMPILER_SYSTEM."/lexical.php"."');");
         }
